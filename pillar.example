@@ -1,5 +1,5 @@
 duplicity:
-  gpg_pub_key:
+  gpg_pub_key: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     Version: GnuPG v1.4.12 (GNU/Linux)
 
@@ -8,7 +8,7 @@ duplicity:
     70hR7ztGhN9G3jqxEn9Q+RiR1/VWDC44xSwU
     =qLKi
     -----END PGP PUBLIC KEY BLOCK-----
-  gpg_priv_key:
+  gpg_priv_key: |
     -----BEGIN PGP PRIVATE KEY BLOCK-----
     Version: GnuPG v1.4.12 (GNU/Linux)
 

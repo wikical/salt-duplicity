@@ -19,10 +19,11 @@ and answer the defaults (RSA and RSA, 2048 bits, does not expire; real
 name "Backup for *hostname*"; email address "root@*hostname*"; no
 comment; empty passphrase). Then, export these keys to files::
 
-  gpg --export-secret-keys --armor root@$hostname >secrets/gpgkeys/$hostname.asc
-  gpg --export --armor root@$hostname >gpgkeys/$hostname.pub.asc
+  gpg --export-secret-keys --armor root@$hostname >$hostname.key
+  gpg --export --armor root@$hostname >$hostname.pub
 
-and somehow upload them to the server.
+Then specify their contents as parameters in the pillar; see
+``pillar.example`` for an example.
 
 Parameters
 ----------
