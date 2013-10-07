@@ -1,0 +1,28 @@
+duplicity:
+  gpg_pub_key:
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v1.4.12 (GNU/Linux)
+
+    mQGiBEKOGUQRBACBWuZJWZhRUw0Az19s2+yV9C5IrBHzD+W6QfpAW73ClMu8n5JY
+    ...
+    70hR7ztGhN9G3jqxEn9Q+RiR1/VWDC44xSwU
+    =qLKi
+    -----END PGP PUBLIC KEY BLOCK-----
+  gpg_priv_key:
+    -----BEGIN PGP PRIVATE KEY BLOCK-----
+    Version: GnuPG v1.4.12 (GNU/Linux)
+
+    mQGiBEKOGUQRBACBWuZJWZhRUw0Az19s2+yV9C5IrBHzD+W6QfpAW73ClMu8n5JY
+    ...
+    70hR7ztGhN9G3jqxEn9Q+RiR1/VWDC44xSwU
+    =qLKi
+    -----END PGP PRIVATE KEY BLOCK-----
+  target: ssh://backuphost.com/var/backups/duplicity/{{ grains['fqdn'] }}
+  target_pw: topsecret
+  full_if_older_than: 2M
+  remove_older_than: 2Y
+  remove_all_inc_of_but_n_full: 2
+  source: /
+  includes_excludes: --include /var/log --exclude /var
+  extra_parms: --ssh-options="-oStrictHostKeyChecking=no"
+  pre: mysqldump -u root -ptopsecret --all-databases > /var/backups/mysql_backup.sql && gzip /var/backups/mysql_backup.sql
