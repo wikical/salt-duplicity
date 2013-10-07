@@ -31,7 +31,7 @@ VERBOSITY={{ verbosity }}
 GPG_OPTIONS="{% if not key_id %}--no-encryption{% elif key_id != 'symmetric' %}--encrypt-key={{ key_id }}{% endif %}"
 ASKPASS="{% if target_pw and target[0] == 's' %}--ssh-askpass{% endif %}"
 INCLUDES_EXCLUDES="{{ includes_excludes.replace('"', '\"') }}"
-EXTRA_PARMS="{{ extra_parms.replace('"', '\"') %}"
+EXTRA_PARMS="{{ extra_parms.replace('"', '\"') }}"
 
 all_options="$GPG_OPTIONS --verbosity=$VERBOSITY $ASKPASS \
             --archive-dir=/var/cache/duplicity $EXTRA_PARMS"
