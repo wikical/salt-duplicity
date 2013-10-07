@@ -56,6 +56,7 @@ python-gobject:
         remove_older_than: {{ pillar.duplicity.get('remove_older_than', '2Y') }}
         remove_all_inc_of_but_n_full: {{ pillar.duplicity.get('remove_all_inc_of_but_n_full', '') }}
         full_if_older_than: {{ pillar.duplicity.get('full_if_older_than', '1M') }}
+        source: {{ pillar.duplicity.get('source', '/') }}
       
 {% set when_to_run = pillar.duplicity.get('when_to_run', '0 4 * * *') %}
 /etc/cron.d/duplicity:
