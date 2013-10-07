@@ -46,7 +46,7 @@ python-gobject:
 /etc/cron.d/duplicity':
   file.managed:
     - mode: 600
-    - contents: {{ when_to_run }} root /usr/local/sbin/custom_backup scheduled
+    - contents: "{{ when_to_run }} root /usr/local/sbin/custom_backup scheduled\n"
 
 {% set pre = pillar.get('pre', 'False') %}
 {% set post = pillar.get('post', 'False') %}
