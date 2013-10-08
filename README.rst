@@ -9,7 +9,22 @@ This is a Salt_ formula for making a server backup itself using
 duplicity_. Essentially it creates a ``custom_backup`` script which is
 similar to duplicity but which automatically passes several options to
 duplicity so that you don't need to specify them (backup location, gpg
-options, and so on). It also sets up scheduled backups with cron.
+options, and so on). So, for example, to restore file
+``/one/two/three``::
+
+    custom_backup restore --file-to-restore=one/two/three one/two/three
+
+To restore to ``/var/tmp`` instead::
+
+    custom_backup restore --file-to-restore=one/two/three /var/tmp/three
+
+To restore as it was three days ago::
+
+    custom_backup restore --time=3D --file-to-restore=one/two/three /var/tmp/three
+
+Run ``custom_backup help`` and ``man duplicity`` for more options.
+
+This Salt formula also sets up scheduled backups with cron.
 
 You may want to generate GPG keys first; to do this run::
 
