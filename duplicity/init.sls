@@ -28,9 +28,15 @@ duplicity:
   pkg:
     - installed
 
+# We install paramiko from pip, because the Debian version has some
+# problems; notably later paramiko versions have improved on
+# https://github.com/paramiko/paramiko/issues/17.
+paramiko:
+  pip.installed:
+    - name: paramiko == 1.12.1
 python-paramiko:
   pkg:
-    - installed
+    - purged
 
 # This is to avoid the "no module gio" warning
 python-gobject:
